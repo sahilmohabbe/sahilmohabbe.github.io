@@ -1,0 +1,163 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAE-1</title> 
+ 
+<style>  
+body{  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: pink;  
+}  
+.container {  
+    padding: 50px;  
+  background-color: #addfad;  
+}  
+  
+input[type=text], input[type=password], textarea {  
+  width: 100%;  
+  padding: 15px;  
+  margin: 5px 0 22px 0;  
+  display: inline-block;  
+  border: none;  
+  background: #f1f1f1;  
+}  
+input[type=text]:focus, input[type=password]:focus {  
+  background-color: antiquewhite;  
+  outline: none;  
+}  
+ div {  
+            padding: 10px 0;  
+         }  
+hr {  
+  border: 1px solid #f1f1f1;  
+  margin-bottom: 25px;  
+}  
+.registerbtn {  
+  background-color: #4CAF50;  
+  color: white;  
+  padding: 16px 20px;  
+  margin: 8px 0;  
+  border: none;  
+  cursor: pointer;  
+  width: 100%;  
+  opacity: 0.9;  
+}  
+.registerbtn:hover {  
+  opacity: 1;  
+}  
+</style>  
+</head> 
+<script type="text/javascript">
+    function verify()
+    {
+      var fn = document.getElementById("fn");
+      var mn = document.getElementById("mn");
+      var ln = document.getElementById("ln");
+      var gender = document.getElementsByName("gender");
+	    var pass = document.getElementById("pass");
+      var email = document.getElementById("email");
+	    var msg = new Array();
+      var flag =1;
+      var message = "Following Details are Required\n";
+	    var message2 = "Following Details are Required<br>";
+      if(fn.value == "" || mn.value == "" || ln.value == "")
+      {
+		    msg[0] = "Name is Required";
+        flag = 0;
+      } else { msg[0] = ""; }
+      if(gender[0].checked == false && gender[1].checked == false && gender[2].checked == false)
+	    {
+		    msg[1] = "Select Gender";
+		    flag = 0;
+	    } 
+      else { msg[1] = ""; }
+      if(flag == 0)
+	    {
+	
+		    for(var x=0;x<=3;x++)
+		    {
+
+			    if(msg[x] != "")
+			    {
+				    message += msg[x] + "\n";
+				    message2 += msg[x] + "<br>";
+			    }
+		    }
+		    alert(message);
+		    document.getElementById("abc").innerHTML = "<p style='color:red;'>"+message2+"</p>";
+		    return false;
+	    }
+	    else
+	    {
+		    return true;
+	    }
+      if (email.value == "") {
+				msg[5] = "Email address is Required";
+				flag = 0;
+			} else { msg[5] = ""; }
+
+
+
+    }
+</script>
+
+<body>
+  <h3 id="abc"></h3> 
+   
+<form>  
+  <div class="container">  
+  <center>  <h1> Provisional Registration</h1> </center>  
+  <hr>  
+  <label style="color:rgb(4, 0, 255)"> <b>FirstName :</b> </label>   
+<input type="text" name="firstname" id="fn" placeholder= "Firstname" size="15" required   >   
+<label style="color:rgb(4, 0, 255)"> <b>MiddleName</b>  : </label>   
+<input type="text" name="middlename" id="mn" placeholder="Middlename" size="15" required >   
+<label style="color:rgb(4, 0, 255)"> <b>LastName</b> : </label>    
+<input type="text" name="lastname" id="ln" placeholder="Lastname" size="15" required >   
+
+<div>  
+<label style="color:rgb(4, 0, 255)">   
+<b>Gender</b> :  
+</label><br>  
+<input type="radio" value="Male" name="gender"  > Male   
+<input type="radio" value="Female" name="gender"> Female   
+<input type="radio" value="Other" name="gender"> Other  
+  
+</div>  
+<label style="color:rgb(4, 0, 255)">   <b>Mob no. :</b>
+  
+</label>  
+<input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>   
+ 
+<b>Current Address :</b>  
+<textarea cols="80" rows="3" placeholder="Current Address" value="address" required>  
+</textarea>  
+<div>  
+  <label style="color:rgb(4, 0, 255)">   
+ <b>Department</b> 
+  </label>   
+    
+  <select>  
+  <option value="Branch">Branch</option>  
+  <option value="CSE">CSE</option>  
+  <option value="AI&DS">AI&DS</option>  
+  <option value="AI&ML">AI&ML</option>  
+  <option value="ET&C">ET&C</option>  
+  <option value="EE">EE</option>  
+  <option value="ME">ME</option>  
+  </select>  
+  </div>  
+  <label for="email" style="color:rgb(4, 0, 255)"><b>Email address: </b></label>
+ <input type="text" placeholder="Enter Email" name="email" required> 
+  
+    <label for="psw" style="color:rgb(4, 0, 255)"><b>Password</b></label>  
+    <input type="password" placeholder="Enter Password" name="psw" size = "8" required>  
+  
+    <label for="psw-repeat" style="color:rgb(4, 0, 255)"><b>Re-type Password</b></label>  
+    <input type="password" placeholder="Retype Password" name="psw-repeat" size = "8"required>  
+    <button type="submit" class="registerbtn">Register</button>    
+</form>  
+</body> 
+<footer align="Center"> &copy; Sahil Mohabbe | S B Jain Institute of Technology | Nagpur</footer> 
+</html> 
