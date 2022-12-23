@@ -1,11 +1,198 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Sahil Mohabbe</title>
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAE-1</title> 
+ 
+	<style>
+		* {
+			font-weight: 1000;
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+		}
+
+		body {
+			background-color: #97ccb0;
+		}
+
+		.header {
+			color: #ffffff;
+			border-bottom: 1px solid #f0f0f0;
+			background: #4a0547;
+			/* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #64b3f4, #3fabda);
+			/* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to right, #64b3f4, #0e65de);
+			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			padding: 20px 40px;
+		}
+
+		.header h2 {
+			margin: 0;
+		}
+
+
+		.container {
+			background-color: #fff;
+			border-radius: 20px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+			display: block;
+			justify-content: center;
+			width: 80%;
+			max-width: 100%;
+			margin: 3% auto auto auto;
+			padding: 1% 5% 2% 5%;
+			background-color: #a7b49d;
+
+		}
+
+		.form {
+			padding: 30px 40px;
+			padding-left: 15px;
+		}
+
+		input[type=text],
+		input[type=submit],
+		input[type=reset],
+		input[type=email] {
+			border-radius: 20px;
+			padding: 12px 5px;
+			margin: 8px 0;
+			display: inline-block;
+			width: 100%;
+			border: none;
+			background: #f1f1f1;
+		}
+		input[type=submit],input[type=reset]{
+			width: 25%;
+		}
+		#btn{
+			padding-top: 20px;
+			text-align: center;
+			padding-bottom: 0%;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function verify() {
+			
+			var fname = document.getElementById("fname");
+			
+			var address = document.getElementById("address");
+			
+			var lname = document.getElementById("lname");
+			var email = document.getElementById("email");
+			var msg = new Array();
+			var flag = 1;
+			var message = "Following Details are Required\n";
+			var message2 = "Following Details are Required<br>";
+			
+
+			if (fname.value == "") {
+				msg[0] = "First Name is Required";
+				flag = 0;
+			} else { msg[0] = ""; }
+
+
+			if (lname.value == "") {
+				msg[1] = "Last Name is required ";
+				flag = 0;
+			} else { msg[1] = ""; }
+
+			
+
+			if (address.value == "") {
+				msg[2] = "Address is Required";
+				flag = 0;
+			} else { msg[2] = ""; }
+
+			if (pin.value == "") {
+				msg[3] = "Pin code is Required";
+				flag = 0;
+			} else { msg[3] = ""; }
+
+			if (email.value == "") {
+				msg[4] = "Email address is Required";
+				flag = 0;
+			} else { msg[4] = ""; }
+
+
+
+			if (flag == 0) {
+				// Show Error Messages
+				for (var x = 0; x <= 4; x++) {
+					if (msg[x] != "") {
+						message += msg[x] + "\n";
+						message2 += msg[x] + "<br>";
+					}
+				}
+				alert(message);
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+
+	</script>
 </head>
+
 <body>
-	<h1>Sahil Mohabbe</h1>
-	<p>Hello my name is Sahil Mohabbe. I'm currently pursuing my B.Tech degree in Electronics And Telecommunication from Sb jain institute of technology, management and research Nagpur</p>
+	<div class="container">
+		<center><h1 style "color: green";">Provisional Registration Form</Form></h1></center>
+		<form method="post" action="" onSubmit="return verify()">
+			
+			<label style="color:#101208">First Name: </label>
+			<input type="text" name="fname" id="fname" size="25" placeholder="First Name" />
+			<label style="color:#0e0e0c"" for="LastName">Last Name:</label>
+			<input type="text" name="lname" id="lname" size="25" placeholder="Enter Last Name">
+			<label style="color:#0f100d"">   
+				<b>Gender</b> :  
+				</label><br>  
+				<input type="radio" value="Male" name="gender"  > Male   
+				<input type="radio" value="Female" name="gender"> Female   
+				<input type="radio" value="Other" name="gender"> Other 
+				<br> 
+				<label style="color:#0d0e0b"">Address: </label>
+				<input type="text" name="address" text area="add" id="address" placeholder="Enter Address" />
+				<label style="color:#161613"">Pin Code: </label>
+				<input type="text" name="pin" id="pin" placeholder="Pin-code">
+				<label style="color:#0c0c09"">Email address: </label>
+				
+				<input type="email" name="email" text area="add" id="email" placeholder="Enter email address" />
+				<label style="color:#11110f"">   
+					<b>Department</b> 
+				</label>   
+				 <select>  
+				 <option value="Branch">Branch</option>  
+				 <option value="CSE">CSE</option>  
+				 <option value="AI&DS">AI&DS</option>  
+				 <option value="AI&ML">AI&ML</option>  
+				 <option value="ET&C">ET&C</option>  
+				 <option value="EE">EE</option>  
+				 <option value="ME">ME</option>
+				 <br>
+				 <br>
+			<input class="form-check-input" type="checkbox" id="gridCheck">
+			<label style="color:#010101"" class="form-check-label" for="gridCheck">
+				
+				Check me out
+			<br>
+			<div id="btn">
+				<input type="submit" value="REGISTER" />
+				<input type="reset" value="CLEAR" />
+			</div>
+		</form>
+		<br>
+		<br>
+	</div>
+	<div>
+		<footer align="center">
+			<h3> &copy; Sahil Mohabbe | USN No: ET20037 | S B Jain Institute of Technology | Nagpur</h3>
+		</footer>
+	</div>
+
 
 </body>
+
 </html>
