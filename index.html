@@ -316,6 +316,24 @@
             word-spacing: 10px;
             
         }
+.hidden{
+    opacity: 0;
+    filter:blur(5px);
+    transform: translatex(-100%);
+    transition:  all 2s;
+  }
+  @media(prefers-reduced-motion){
+    .hidden{
+      transition: all;
+    }
+  }
+  .show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+
+	    
     #about .container{
         display: flex;
         flex-wrap: wrap;
@@ -636,7 +654,8 @@
 
     <section>
         <div class="main">
-            <div class="detail"><!---Sarah -->
+           <div class="hidden">
+		    <div class="detail"><!---Sarah -->
                 <h1><span>HELLO, </span> <br> I'm <span style="color:#00E8F8;">Sahil Mohabbe</span></h1>
                 <p style="font-size: 25px;">Frontend Developer, <br>From Nagpur. </p>
                 <div class="social">
@@ -650,6 +669,8 @@
 
                 </div>
             </div>
+	   </div>
+				       
             <div class="Animation">
               <svg class="pl" viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -669,7 +690,7 @@
         </div>
     </section>
     <section>
-        <div id="about">
+        <div id="about" class = "hidden">
             <div class="container">
               <div class="leftcontainer">
                 <div class="title"><h1> About Me</h1></div>
@@ -793,8 +814,24 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 </style>
-<!-- <style>
-    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
-  </style> -->
+<script>
+	const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry)=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show')
+
+    }
+    // else{
+    //   entry.target.classList.remove('show')
+    // }
+
+  });
+
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach(element=>observer.observe(element));
+
+</script>
 
 </html>
